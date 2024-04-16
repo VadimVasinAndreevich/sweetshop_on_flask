@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}
+  {{ super() }} - {{ title }}
+{% endblock %}
+{% block content %}
+    <a href="/del_buyer/">.....Удалить учётную запись.....</a>
+    <p>{{ buyer.contact_number }}<a href="/change_information/">.....Изменить.....</a></p>
+    <a href="/change_address/">.....Добавить адрес.....</a>
+    {% for line in address %}
+        <p>{{ line.address }}</p>
+    {% endfor %}
+{% endblock %}

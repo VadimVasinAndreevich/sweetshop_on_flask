@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+    <form method="POST" action="{{ url_for('shopping_cart') }}">
+    {{ form.csrf_token }}
+    {% for sweet in sweets %}
+        <div class="object">
+            <a href="/static/media/sweet_1.jpg">
+            <img src="/static/media/sweet_1.jpg" alt="фото" width="200" height="200"></a>
+            <p>Название: {{ sweet.name }}<br>
+            Описание: {{ sweet.description }}<br>
+            Цена: {{ sweet.price }} руб.<br>
+            Количество: {{ form.count }} шт.</p>
+            <p><a href="/del_product/{{ sweet.id }}">.....Удалить из корзины.....</a></p>
+        </div>
+    {% endfor %}
+    <select name="street">
+    {% for street in streets %}
+        <option value="{{ street }}">{{ street }}</option>
+    {% endfor %}
+    </select>
+    <p>
+        <input type="submit" name="submit" value="Отправить">
+    </p>
+    </form>
+{% endblock %}

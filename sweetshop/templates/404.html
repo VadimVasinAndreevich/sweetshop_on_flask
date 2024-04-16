@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}
+  {{ super() }} - {{ title }}
+{% endblock %}
+{% block content %}
+    <div class="error" align="center">
+        <h1 style="color: red">404</h1>
+        <h2 style="color: red">Страница не найдена</h2>
+        <h3 style="color: red">Воспользуйтесь ссылками на странице</h3>
+    </div>
+{% endblock %}

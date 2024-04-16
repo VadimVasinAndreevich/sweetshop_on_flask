@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Войти</h1>
+    <form method="POST" action="{{ url_for('login_form') }}">
+        {{ form.csrf_token }}
+        <p>
+            {{ form.email.label }}<br>
+            {{ form.email(size=32) }}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}
+        </p>
+        <div class="info_contact">
+            <h3>{{ session['message'] }}</h3>
+        </div>
+        <p>
+            <input type="submit" value="Войти">
+        </p>
+    </form>
+{% endblock %}

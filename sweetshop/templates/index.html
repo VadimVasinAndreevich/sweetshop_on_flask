@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+  {{ super() }} - {{ title }}
+{% endblock %}
+{% block content %}
+    {% for sweet in sweets %}
+        <div class="object">
+            <a href="/static/media/sweet_1.jpg">
+            <img src="/static/media/sweet_1.jpg" alt="фото" width="200" height="200"></a>
+            <p>Название: {{ sweet.name }}<br>
+            Описание: {{ sweet.description }}<br>
+            Цена за 1 шт.: {{ sweet.price }} руб.</p>
+            {% if session['name'] %}
+                <a href="/product/{{ sweet.id }}">.....Добавить.....</a>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+    {% for sweet in sweets %}
+        {% for prod in product %}
+            {% if prod.sweet_id == sweet.id %}
+                <div class="object">
+                    <a href="/static/media/sweet_1.jpg">
+                    <img src="/static/media/sweet_1.jpg" alt="фото" width="200" height="200"></a>
+                    <p>Название: {{ sweet.name }}</p>
+                    <p>Описание: {{ sweet.description }}</p>
+                    <p>Цена за 1 шт.: {{ sweet.price }} руб.</p>
+                    <p>Количество: {{ prod.count }} шт.</p>
+                    <p>Цена за {{ prod.count }} шт.: {{ prod.price }} руб.</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    <p>Итоговая сумма: {{ total_price }} руб.</p>
+    <a href="/order/">.....Подтвердить.....</a>
+{% endblock %}

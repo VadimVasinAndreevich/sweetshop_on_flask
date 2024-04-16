@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>
+    {% block title %}
+        Магазин сладостей
+    {% endblock %}
+    </title>
+</head>
+<header>
+    <div class="title">
+        <h1 align="center">Мир Сладостей</h1>
+    </div>
+    <h3>
+        <a href="/">.....Главная.....</a>
+        {% if  session['name'] %}
+            <a href="/logout/">.....Выйти.....</a>
+            <a href="/my_profile/">.....Мои данные.....</a>
+            <a href="/shopping_cart/">.....Корзина.....</a>
+        {% else %}
+            <a href="/registration/">.....Регистрация.....</a>
+            <a href="/login/">.....Войти.....</a>
+            <!-- <a href="/add_sweets/">.....Конфеты.....</a> -->
+        {% endif %}
+    </h3>
+</header>
+<body>
+    {% block content %}
+        Страница не заполнена
+    {% endblock %}
+</body>
+<footer><h2 align="center">Все права защищены &copy;</h2></footer>
+</html>
