@@ -3,16 +3,18 @@
     <form method="POST" action="{{ url_for('shopping_cart') }}">
     {{ form.csrf_token }}
     {% for sweet in sweets %}
-        <div class="object">
+        <div onmousemove="operation({{ sweet.price }}, {{ sweet.id }}), operationOne()" class="object">
             <a href="/static/media/sweet_1.jpg">
             <img src="/static/media/sweet_1.jpg" alt="фото" width="200" height="200"></a>
             <p>Название: {{ sweet.name }}<br>
             Описание: {{ sweet.description }}<br>
             Цена: {{ sweet.price }} руб.<br>
-            Количество: {{ form.count }} шт.</p>
+            Количество: <input value="0" type="number" id="count{{ sweet.id }}" name="count"> шт.</p>
+            <p id="number{{ sweet.id }}"></p>
             <p><a href="/del_product/{{ sweet.id }}">.....Удалить из корзины.....</a></p>
         </div>
     {% endfor %}
+    <p id="total"></p>
     <select name="street">
     {% for street in streets %}
         <option value="{{ street }}">{{ street }}</option>

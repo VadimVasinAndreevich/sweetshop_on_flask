@@ -162,7 +162,7 @@ def product(sweet_id):
     product = Product(sweet_id=sweet_id, buyer_id=buyer.id, count=0, price=0)
     db.session.add(product)
     db.session.commit()
-    return redirect(url_for('index'))
+    return redirect(url_for('shopping_cart'))
 
 
 @app.route('/shopping_cart/', methods=['GET', 'POST'])
